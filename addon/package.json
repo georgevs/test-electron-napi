@@ -1,0 +1,28 @@
+{
+  "name": "@acme/addon",
+  "version": "1.0.0",
+  "description": "addon",
+  "license": "UNLICENSED",
+  "main": "index.js",
+  "scripts": {
+    "build": "node-pre-gyp build",
+    "clean": "node-pre-gyp clean",
+    "install": "node-pre-gyp install --fallback-to-build",
+    "package": "node-pre-gyp package",
+    "rebuild": "node-pre-gyp rebuild"
+  },
+  "dependencies": {
+    "node-addon-api": "^2.0.0",
+    "node-pre-gyp": "^0.14.0"
+  },
+  "binary": {
+    "module_name": "addon",
+    "module_path": "./lib/binding/napi-v{napi_build_version}",
+    "remote_path": "./{module_name}/v{version}",
+    "package_name": "{platform}-{arch}-napi-v{napi_build_version}.tar.gz",
+    "host": "https://acme.net/addon",
+    "napi_versions": [
+      4
+    ]
+  }
+}
